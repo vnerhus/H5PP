@@ -172,7 +172,7 @@ class H5PDjangoEditor:
         self.contentDirectory = os.path.join(
             self.contentFilesDir, str(contentId))
         if not os.path.isdir(self.contentFilesDir):
-            os.mkdir(os.path.join(self.basePath, self.contentFilesDir), 0777)
+            os.mkdir(os.path.join(self.basePath, self.contentFilesDir))
 
         subDirectories = ['', 'files', 'images', 'videos', 'audios']
         for subDirectory in subDirectories:
