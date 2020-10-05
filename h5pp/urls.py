@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from django.contrib.auth import login, logout
+from django.contrib.auth.views import LoginView, LogoutView
 import h5pp.views
 
 app_name = 'h5pp'
@@ -8,8 +8,8 @@ urlpatterns = [
     url(r'^home/$', h5pp.views.home, name='h5phome'),
 
     # Authentification
-    url(r'^login/', login, name='login'),
-    url(r'^logout/', logout, name='logout'),
+    url(r'^login/', LoginView, name='login'),
+    url(r'^logout/', LogoutView, name='logout'),
 
     # Contents and Libraries
     url(r'^libraries/$', h5pp.views.librariesView, name='h5plibraries'),
