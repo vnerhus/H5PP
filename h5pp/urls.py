@@ -1,4 +1,4 @@
-from django.conf.urls import url, path
+from django.conf.urls import url
 from django.contrib.auth import login, logout
 import h5pp.views
 
