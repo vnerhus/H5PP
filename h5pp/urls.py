@@ -8,8 +8,8 @@ urlpatterns = [
     url(r'^home/$', h5pp.views.home, name='h5phome'),
 
     # Authentification
-    url(r'^login/', login.as_view(template_name='h5p/login.html'), name='login'),
-    url(r'^logout/', logout.as_view(template_name='/h5p/home'), name='logout'),
+    url(r'^login/', login, name='login'),
+    url(r'^logout/', logout, name='logout'),
 
     # Contents and Libraries
     url(r'^libraries/$', h5pp.views.librariesView, name='h5plibraries'),
