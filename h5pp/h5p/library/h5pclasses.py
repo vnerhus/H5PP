@@ -13,8 +13,8 @@ import hashlib
 import uuid
 import cgi
 from django.template.defaultfilters import slugify
-from h5pdevelopment import H5PDevelopment
-from h5pdefaultstorage import H5PDefaultStorage
+from .h5pdevelopment import H5PDevelopment
+from .h5pdefaultstorage import H5PDefaultStorage
 
 is_array = lambda var: isinstance(var, (list, tuple))
 
