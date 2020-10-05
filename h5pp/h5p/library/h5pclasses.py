@@ -773,7 +773,7 @@ class H5PExport:
 
         # Get path to temporary folder, where export will be contained
         tmpPath = self.h5pC.fs.getTmpPath()
-        os.mkdir(tmpPath, 0777)
+        os.mkdir(tmpPath)
 
         try:
             # Create content folder and populate with files
