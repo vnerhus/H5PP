@@ -6,7 +6,7 @@ import pprint
 import glob
 import binascii
 import cgi
-import urllib2
+import urllib.request as urllib2
 import math
 import time
 import hashlib
