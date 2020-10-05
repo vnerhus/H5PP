@@ -1585,9 +1585,9 @@ class H5PCore:
     # Makes it easier to respond using JSON.
     ##
     def printJson(self, data):
-        print "Cache-Control: no-cache\n"
-        print "Content-type: application/json; charset=utf-8\n"
-        print json.dumps(data)
+        print("Cache-Control: no-cache\n")
+        print("Content-type: application/json; charset=utf-8\n")
+        print(json.dumps(data))
 
     ##
     # Get a new H5P security token for the given action
