@@ -1052,7 +1052,7 @@ class H5PCore:
         validator = H5PContentValidator(self.h5pF, self)
         print("CONTENT PARAMS:", content["params"], type(content['params']))
         params = {
-            "library": self.libraryToString(content["library"]),
+            "library": self.libraryToString(content["library"].decode('utf-8')),
             "params": json.loads(content["params"])
         }
 
