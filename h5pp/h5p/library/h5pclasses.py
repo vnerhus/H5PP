@@ -305,12 +305,12 @@ class H5PValidator:
 
             missingLibraries = self.getMissingLibraries(libraries)
 
-            for libString, missing in missingLibraries[0].iteritems():
+            for libString, missing in missingLibraries[0].items():
                 if self.h5pC.getLibraryId(missing, libString):
                     del missingLibraries[libString]
 
             if not empty(missingLibraries[0]):
-                for libString, library in missingLibraries[0].iteritems():
+                for libString, library in missingLibraries[0].items():
                     print(
                         "Missing required library %s" % (libString))
                 if not self.h5pF.mayUpdateLibraries():
@@ -401,7 +401,7 @@ class H5PValidator:
     ##
     def getMissingLibraries(self, libraries):
         missing = []
-        for library, content in libraries.iteritems():
+        for library, content in libraries.iteitems():
             if "preloadedDependencies" in content:
                 missing.append(self.getMissingDependencies(
                     content["preloadedDependencies"], libraries))
@@ -479,7 +479,7 @@ class H5PValidator:
     def isValidOptionalH5pData(self, h5pData, requirements, library_name):
         valid = True
 
-        for key, value in h5pData.iteritems():
+        for key, value in h5pData.items():
             if key in requirements:
                 valid = self.isValidRequirement(
                     value, requirements[key], library_name, key) and valid
@@ -541,7 +541,7 @@ class H5PValidator:
     def isValidRequiredH5pData(self, h5pData, requirements, library_name):
         valid = True
         if isinstance(requirements, dict):
-            for required, requirement in requirements.iteritems():
+            for required, requirement in requirements.items():
                 if isinstance(required, int):
                     # We have an array of allowed options
                     return self.isValidH5pDataOptions(h5pData, requirements, library_name)
@@ -650,7 +650,7 @@ class H5PStorage:
         newOnes = 0
         oldOnes = 0
         # Go through libraries that came with self package
-        for libString, library in self.h5pC.librariesJsonData.iteritems():
+        for libString, library in self.h5pC.librariesJsonData.items():
             # Find local library identifier
             libraryId = self.h5pC.getLibraryId(library, libString)
 
@@ -694,7 +694,7 @@ class H5PStorage:
                 oldOnes += 1
 
         # Go through the libraries again to save dependencies.
-        for libstring, library in self.h5pC.librariesJsonData.iteritems():
+        for libstring, library in self.h5pC.librariesJsonData.items():
             if not library["saveDependencies"]:
                 continue
 
@@ -800,7 +800,7 @@ class H5PExport:
         }
 
         # Add dependencies to h5p
-        for key, dependency in content["dependencies"].iteritems():
+        for key, dependency in content["dependencies"].items():
             library = dependency["library"]
 
             try:
@@ -1114,7 +1114,7 @@ class H5PCore:
         if self.development_mode and H5PDevelopment.MODE_LIBRARY:
             developmentLibraries = self.h5pD.getLibraries()
 
-            for key, dependency in dependencies.iteritems():
+            for key, dependency in dependencies.items():
                 libraryString = self.libraryToString(dependency)
                 if libraryString in developmentLibraries:
                     developmentLibraries[libraryString]["dependencyType"] = dependencies[
@@ -1187,7 +1187,7 @@ class H5PCore:
                 return dict(files, **cachedAssets)  # Using cached assets
 
         # Using content dependencies
-        for key, dependency in dependencies.iteritems():
+        for key, dependency in dependencies.items():
             if not 'path' in dependency:
                 dependency['path'] = '/libraries/' + \
                     self.libraryToString(dependency, True)
@@ -1225,7 +1225,7 @@ class H5PCore:
     def getDependenciesHash(self, dependencies):
         toHash = list()
         # Use unique identifier for each library version
-        for dep, lib in dependencies.iteritems():
+        for dep, lib in dependencies.items():
             toHash.append(lib["machineName"] + "-" + str(lib["majorVersion"]) +
                           "." + str(lib["minorVersion"]) + "." + str(lib["patchVersion"]))
 
@@ -1432,7 +1432,7 @@ class H5PCore:
         librariesInstalled = dict()
         libs = self.h5pF.loadLibraries()
 
-        for libName, library in libs.iteritems():
+        for libName, library in libs.items():
             librariesInstalled[libName + " " + str(library['major_version']) +
                                "." + str(library['minor_version'])] = library['patch_version']
 
@@ -1443,8 +1443,8 @@ class H5PCore:
     ##
     def combineArrayValues(self, inputs):
         results = dict()
-        for index, values in inputs.iteritems():
-            for key, value in values.iteritems():
+        for index, values in inputs.items():
+            for key, value in values.items():
                 results[key] = {index: value}
 
         return results
@@ -1493,7 +1493,7 @@ class H5PCore:
 
         # Handle libraries metadata
         if 'libraries' in jsonData:
-            for machineName, libInfo in jsonData['libraries'].iteritems():
+            for machineName, libInfo in jsonData['libraries'].items():
                 if 'tutorialUrl' in libInfo:
                     self.h5pF.setLibraryTutorialUrl(
                         machineName, libInfo['tutorialUrl'])
@@ -1910,7 +1910,7 @@ class H5PContentValidator:
             function = self.typeMap[field['type']]
             eval('self.' + function + '(group, field)')
         else:
-            for key, value in group.iteritems():
+            for key, value in group.items():
                 if isSubContent and key == 'subContentId':
                     continue
 
@@ -2011,7 +2011,7 @@ class H5PContentValidator:
     # Check params for a whitelist of allowed properties
     ##
     def filterParams(self, params, whitelist):
-        for key, value in params.iteritems():
+        for key, value in params.items():
             if not key in whitelist:
                 del params[key]
 
