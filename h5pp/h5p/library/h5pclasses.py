@@ -1052,6 +1052,7 @@ class H5PCore:
         validator = H5PContentValidator(self.h5pF, self)
         content['params'] = content['params'].replace("\\", "")
         print(content['params'])
+        print("{'answers': 'hello'}")
         params = {
             "library": self.libraryToString(content["library"]),
             "params": json.loads(content['params'])
