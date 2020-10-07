@@ -36,7 +36,7 @@ H5P.ActionBar = (function ($, EventDispatcher) {
         self.trigger(type);
       };
       H5P.jQuery('<li/>', {
-        'class': 'h5p-button h5p-' + (customClass ? customClass : type),
+        'class': 'h5p-button h5p-noselect h5p-' + (customClass ? customClass : type),
         role: 'button',
         tabindex: 0,
         title: H5P.t(type + 'Description'),
@@ -57,9 +57,9 @@ H5P.ActionBar = (function ($, EventDispatcher) {
     };
 
     // Register action bar buttons
-    if (displayOptions.export) {
+    if (displayOptions.export || displayOptions.copy) {
       // Add export button
-      addActionButton('download', 'export');
+      addActionButton('reuse', 'export');
     }
     if (displayOptions.copyright) {
       addActionButton('copyrights');
