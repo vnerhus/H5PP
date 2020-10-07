@@ -1050,11 +1050,10 @@ class H5PCore:
 
         # Validate and filter against main library semantics.
         validator = H5PContentValidator(self.h5pF, self)
-        d = eval(content['params']).decode('utf-8')
-        print("CONTENT PARAMS:", d, type(d))
+        content['params'].replace("\\", "")
         params = {
             "library": self.libraryToString(content["library"]),
-            "params": json.loads(d)
+            "params": json.loads(content['params'])
         }
 
         if not 'params' in params:
