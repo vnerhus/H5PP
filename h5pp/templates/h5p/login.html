@@ -7,7 +7,7 @@
 			</p>
 		</div>
 	{% endif %}
-	<form action="{% url "login" %}" method="post" id="form_login">
+	<form action="{% url 'h5pp:h5plogin' %}" method="post" id="form_login">
 		{% csrf_token %}
 		<label for="username">Username:
 			<input type="text" name="username" value="" id="username">
