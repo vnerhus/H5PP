@@ -116,8 +116,8 @@ class CreateForm(forms.Form):
                 raise forms.ValidationError(
                     'The uploaded file was not a valid h5p package.')
 
-            self.request.POST['h5p_upload'] = paths['path']
-            self.request.POST['h5p_upload_folder'] = paths['folderPath']
+            #self.request.POST['h5p_upload'] = paths['path']
+            #self.request.POST['h5p_upload_folder'] = paths['folderPath']
             if not h5pInsert(self.request, interface):
                 raise forms.ValidationError('Error during saving the content.')
         else:
