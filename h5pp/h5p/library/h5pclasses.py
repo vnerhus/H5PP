@@ -1053,9 +1053,9 @@ class H5PCore:
         content['params'] = content['params'].replace("\\", "").replace(":", ": ").replace(",", ", ")
         content['params'] = eval(content['params']).decode('utf-8')
         print(content['params'])
-        a = "{'answers': 'hello'}"
+        a = '{"answers": "hello"}'
         b = json.loads(a)
-        print(a)
+        print(b)
         params = {
             "library": self.libraryToString(content["library"]),
             "params": json.loads(content['params'])
