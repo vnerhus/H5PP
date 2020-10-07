@@ -1053,7 +1053,7 @@ class H5PCore:
         print("CONTENT PARAMS:", content["params"], type(content['params']))
         params = {
             "library": self.libraryToString(content["library"]),
-            "params": json.loads(dict(content["params"]))
+            "params": json.loads(eval(content["params"]))
         }
 
         if not 'params' in params:
