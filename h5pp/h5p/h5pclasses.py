@@ -395,7 +395,7 @@ class H5PDjango:
             embed_type='div',
             content_type=content['library']['machineName'],
             main_library_id=content['library']['libraryId'],
-            author=content['author'],
+            #author=content['author'],
             disable=content['disable'],
             filtered='',
             slug=slugify(content['title']))
