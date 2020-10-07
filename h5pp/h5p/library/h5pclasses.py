@@ -15,6 +15,7 @@ import cgi
 from django.template.defaultfilters import slugify
 from .h5pdevelopment import H5PDevelopment
 from .h5pdefaultstorage import H5PDefaultStorage
+import six
 
 is_array = lambda var: isinstance(var, (list, tuple))
 
@@ -485,11 +486,13 @@ class H5PValidator:
                     value, requirements[key], library_name, key) and valid
         return valid
 
+
     ##
     # Validate a requirement given as regexp or an array of requirements
     ##
     def isValidRequirement(self, h5pData, requirement, library_name, property_name):
         valid = True
+
 
         if isinstance(requirement, str):
             if requirement == "boolean":
@@ -499,7 +502,7 @@ class H5PValidator:
                     valid = False
             else:
                 # The requirement is a regexp, match it against the data
-                if isinstance(h5pData, basestring) or isinstance(h5pData, int):
+                if isinstance(h5pData, six.string_types) or isinstance(h5pData, int):
                     if not re.search(requirement, str(h5pData)):
                         print(
                             "Invalid data provided for %s in %s. No Matches between %s and %s" % (property_name, library_name, requirement, h5pData))
@@ -1650,7 +1653,7 @@ class H5PContentValidator:
     # Validate given text value against text semantics.
     ##
     def validateText(self, text, semantics):
-        if not isinstance(text, basestring):
+        if not isinstance(text, six.string_types):
             text = ''
 
         if 'tags' in semantics:
