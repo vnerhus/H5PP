@@ -62,7 +62,7 @@ def h5pInsert(request, interface):
         storage.savePackage(h5pGetContentId(request), None, False, {
                             'disable': request.POST['disable'], 'title': request.POST['title']})
     else:
-        if not 'name' in request.POST['main_library']:
+        if not 'name' in request.POST.get('main_library', {}):
             lib = h5p_libraries.objects.filter(library_id=request.POST['main_library_id']).values(
                 'machine_name', 'major_version', 'minor_version')
             lib = {
