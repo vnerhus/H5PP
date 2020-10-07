@@ -1051,7 +1051,8 @@ class H5PCore:
         # Validate and filter against main library semantics.
         validator = H5PContentValidator(self.h5pF, self)
         content['params'] = content['params'].replace("\\", "")
-        print(eval(content['params']).decode('utf-8'))
+        content['params'] = eval(content['params']).decode('utf-8')
+        print(content['params'])
         print("{'answers': 'hello'}")
         params = {
             "library": self.libraryToString(content["library"]),
