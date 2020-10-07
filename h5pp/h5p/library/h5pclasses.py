@@ -926,7 +926,7 @@ class H5PExport:
 class H5PCore:
 
     coreApi = {
-        "majorVersion": 1,
+        "majorVersion": 2,
         "minorVersion": 12
     }
 
