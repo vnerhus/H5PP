@@ -67,9 +67,9 @@ def h5pInsert(request, interface):
                 'machine_name', 'major_version', 'minor_version')
             lib = {
                 'libraryId': request.POST.get('main_library_id', None),
-                'machineName': lib.machine_name,
-                'majorVersion': lib.major_version,
-                'minorVersion': lib.minor_version
+                'machineName': lib['machine_name'],
+                'majorVersion': lib['major_version'],
+                'minorVersion': lib['minor_version'],
             }
         else:
             lib = {
