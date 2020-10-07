@@ -1262,7 +1262,7 @@ class H5PCore:
                 name, majorVersion, minorVersion)
 
         if semantics != None:
-            semantics = json.loads(semantics['semantics'])
+            semantics = json.loads(eval(semantics['semantics']).decode('utf-8'))
 
         return semantics
 
