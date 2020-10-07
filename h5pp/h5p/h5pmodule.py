@@ -57,6 +57,7 @@ def h5pLibraryDetailsTitle(libraryId):
 
 
 def h5pInsert(request, interface):
+    print("request:", request.POST)
     if 'h5p_upload' in request.POST:
         storage = interface.h5pGetInstance('storage')
         storage.savePackage(h5pGetContentId(request), None, False, {
