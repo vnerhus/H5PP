@@ -402,7 +402,7 @@ class H5PValidator:
     ##
     def getMissingLibraries(self, libraries):
         missing = []
-        for library, content in libraries.iteitems():
+        for library, content in libraries.items():
             if "preloadedDependencies" in content:
                 missing.append(self.getMissingDependencies(
                     content["preloadedDependencies"], libraries))
