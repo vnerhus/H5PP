@@ -1052,10 +1052,6 @@ class H5PCore:
         validator = H5PContentValidator(self.h5pF, self)
         content['params'] = content['params'].replace("\\", "").replace(":", ": ").replace(",", ", ")
         content['params'] = eval(content['params']).decode('utf-8')
-        print(content['params'])
-        a = '{"answers": "hello"}'
-        b = json.loads(a)
-        print(b)
         params = {
             "library": self.libraryToString(content["library"]),
             "params": json.loads(content['params'])
@@ -1261,6 +1257,7 @@ class H5PCore:
             semantics = self.h5pF.loadLibrarySemantics(
                 name, majorVersion, minorVersion)
 
+        print(semantics['semantics'])
         if semantics != None:
             semantics = json.loads(eval(semantics['semantics']).decode('utf-8'))
 
