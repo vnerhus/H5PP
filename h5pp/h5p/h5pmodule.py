@@ -66,29 +66,29 @@ def h5pInsert(request, interface):
             lib = h5p_libraries.objects.filter(library_id=request.POST['main_library_id']).values(
                 'machine_name', 'major_version', 'minor_version')
             lib = {
-                'libraryId': request.POST['main_library_id'],
+                'libraryId': request.get('main_library', None),
                 'machineName': lib.machine_name,
                 'majorVersion': lib.major_version,
                 'minorVersion': lib.minor_version
             }
         else:
             lib = {
-                'libraryId': request.POST['main_library_id'],
-                'machineName': request.POST['main_library']['name'] if 'name' in request.POST['main_library'] else '',
-                'majorVersion': request.POST['main_library']['majorVersion'] if 'majorVersion' in request.POST['main_library'] else '',
-                'minorVersion': request.POST['main_library']['minorVersion'] if 'minorVersion' in request.POST['main_library'] else ''
+                'libraryId': request.POST.get('main_library', ''),
+                'machineName': request.POST.get('main_library', '')['name'] if 'name' in request.POST.get('main_library', {}) else '',
+                'majorVersion': request.POST.get('main_library', '')['majorVersion'] if 'majorVersion' in request.POST.get('main_library', {}) else '',
+                'minorVersion': request.POST.get('main_library', '')['minorVersion'] if 'minorVersion' in request.POST.get('main_library', {}) else ''
             }
         core = h5pGetInstance('core')
         core.saveContent({
             'id': h5pGetContentId(request),
-            'title': request.POST['title'],
-            'params': request.POST['json_content'],
-            'embed_type': request.POST['embed_type'],
-            'disable': request.POST['disable'],
+            'title': request.POST.get('title', ''),
+            'params': request.POST.get('json_content', ''),
+            'embed_type': request.POST.get('embed_type', ''),
+            'disable': request.POST.get('disable', ''),
             'library': lib,
             'author': request.user.username,
-            'h5p_library': request.POST['h5p_library'] if 'h5p_library' in request.POST else None
-        }, request.POST['nid'])
+            'h5p_library': request.POST.get('h5p_library', '') if 'h5p_library' in request.POST else None
+        }, request.POST.get('nid', ''))
 
     return True
 
