@@ -63,17 +63,17 @@ def h5pInsert(request, interface):
                             'disable': request.POST['disable'], 'title': request.POST['title']})
     else:
         if not 'name' in request.POST.get('main_library', {}):
-            lib = h5p_libraries.objects.filter(library_id=request.POST['main_library_id']).values(
+            lib = h5p_libraries.objects.filter(library_id=request.POST.get('main_library_id')).values(
                 'machine_name', 'major_version', 'minor_version')
             lib = {
-                'libraryId': request.get('main_library', None),
+                'libraryId': request.get('main_library_id', None),
                 'machineName': lib.machine_name,
                 'majorVersion': lib.major_version,
                 'minorVersion': lib.minor_version
             }
         else:
             lib = {
-                'libraryId': request.POST.get('main_library', ''),
+                'libraryId': request.POST.get('main_library_id', ''),
                 'machineName': request.POST.get('main_library', '')['name'] if 'name' in request.POST.get('main_library', {}) else '',
                 'majorVersion': request.POST.get('main_library', '')['majorVersion'] if 'majorVersion' in request.POST.get('main_library', {}) else '',
                 'minorVersion': request.POST.get('main_library', '')['minorVersion'] if 'minorVersion' in request.POST.get('main_library', {}) else ''
