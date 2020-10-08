@@ -2021,9 +2021,10 @@ class H5PContentValidator:
     # Check params for a whitelist of allowed properties
     ##
     def filterParams(self, params, whitelist):
-        for key, value in params.items():
-            if not key in whitelist:
-                del params[key]
+        params = {key: value for key, value in params.items() if not key in whitelist}
+        #for key, value in params.items():
+        #    if not key in whitelist:
+        #        del params[key]
 
     ##
     # Prevent cross-site-scripting (XSS) vulnerabilities
