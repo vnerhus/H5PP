@@ -43,7 +43,7 @@
 				var selected = document.getElementsByClassName('success')[0];
 				var title = selected.getElementsByTagName('td')[0].getElementsByTagName('a')[0].innerHTML;
 				var id = selected.getElementsByTagName('td')[3].innerText;
-				window.location = "{% url 'h5pcreate' %}" + id + "/?title=" + title;
+				window.location = "{% url 'h5pp:h5pcreate' %}" + id + "/?title=" + title;
 			}
 			catch(error) {
 				alert('First select a content to edit.');
