@@ -179,7 +179,7 @@ class H5PValidator:
         contentJsonData = None
         mainH5pExists = imageExists = contentExists = False
         for f in files:
-            if f[0:1] in [".", "_", "1234567890"]:
+            if f[0:1] in [".", "_"]+list("123456789"):
                 continue
 
             filePath = tmpDir + "/" + f
