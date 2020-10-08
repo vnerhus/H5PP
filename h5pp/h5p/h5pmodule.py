@@ -452,9 +452,12 @@ def h5pGetListContent(request):
     if contents > 0:
         result = list()
         for content in interface.loadAllContents():
-            load = interface.loadContent(content['content_id'])
-            load['score'] = getUserScore(content['content_id'])
-            result.append(load)
+            try:
+                load = interface.loadContent(content['content_id'])
+                load['score'] = getUserScore(content['content_id'])
+                result.append(load)
+            except:
+                print("Error getting content:", content['content_id'])
         return result
     else:
         return 0
