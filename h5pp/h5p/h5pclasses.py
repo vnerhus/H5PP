@@ -248,6 +248,8 @@ class H5PDjango:
     # Also fills in the libraryId in the libraryData object if the object is new
     ##
     def saveLibraryData(self, libraryData, new=True):
+        print("\n\n\nLIBRARY DATA: ", libraryData)
+
         preloadedJs = self.pathsToCsv(libraryData, 'preloadedJs')
         preloadedCss = self.pathsToCsv(libraryData, 'preloadedCss')
         dropLibraryCss = ''
