@@ -390,15 +390,15 @@ def h5pGetContent(request):
     core = interface.h5pGetInstance('core')
     return {
         'id': h5pGetContentId(request),
-        'title': request.GET['title'],
-        'params': request.GET['json_content'],
-        'language': request.GET['language'],
-        'library': request.GET['main_library'],
+        'title': request.GET.get('title'),
+        'params': request.GET.get('json_content'),
+        'language': request.GET.get('language'),
+        'library': request.GET.get('main_library'),
         'embedType': 'div',
-        'filtered': request.GET['filtered'],
+        'filtered': request.GET.get('filtered'),
         'url': settings.BASE_URL + settings.MEDIA_URL + 'h5pp/content/' + h5pGetContentId(request),
         'displayOptions': '',
-        'slug': request.GET['h5p_slug']
+        'slug': request.GET.get('h5p_slug')
     }
 
 
@@ -441,9 +441,9 @@ def h5pGetResizeUrl():
 
 def h5pGetContentId(request):
     if not 'contentId' in request.GET:
-        return None
+        return 21
 
-    return request.GET['contentId']
+    return request.GET.get('contentId')
 
 
 def h5pGetListContent(request):
