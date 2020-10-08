@@ -182,7 +182,10 @@ def h5pUserDelete(user):
 def includeH5p(request):
     contentId = h5pGetContentId(request)
     print("REQUEST GET:", request.GET)
-    embed = determineEmbedType(request.GET.get('embed_type'), request.GET.get('main_library')['embedTypes'])
+    if "embedTypes" in request.GET.get('main_library', {}):
+        embed = determineEmbedType(request.GET.get('embed_type'), request.GET.get('main_library')['embedTypes'])
+    else:
+        embed = request.GET.get('embed_type')
 
     data = h5pAddFilesAndSettings(request, embed)
     if embed == 'div':
