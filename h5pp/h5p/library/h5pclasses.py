@@ -1253,8 +1253,7 @@ class H5PCore:
 
         if semantics is None:
             # Try to load from DB.
-            semantics = self.h5pF.loadLibrarySemantics(
-                name, majorVersion, minorVersion)
+            semantics = self.h5pF.loadLibrarySemantics(name, majorVersion, minorVersion)
 
         print(semantics['semantics'])
         if semantics is not None:
