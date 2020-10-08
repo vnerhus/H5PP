@@ -569,6 +569,7 @@ class H5PDjango:
 			JOIN h5p_libraries hl ON hl.library_id = hn.main_library_id
 			WHERE content_id = %s
 		""" % pid)
+        print("ID"*40, pid)
         content = self.dictfetchall(cursor)
         return None if len(content) == 0 else content[0]
 
