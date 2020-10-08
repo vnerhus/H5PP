@@ -165,7 +165,7 @@ def scoreView(request, contentId):
     return HttpResponseRedirect('/h5p/login/?next=/h5p/score/' + contentId + '/')
 
 def embedView(request):
-    if True: #'contentId' in request.GET:
+    if 'contentId' in request.GET.get('content'):
         h5pLoad(request)
         embed = h5pEmbed(request)
         score = None
