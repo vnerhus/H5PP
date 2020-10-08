@@ -16,7 +16,6 @@ def handleUploadedFile(files, filename):
     tmpdir = os.path.join(settings.MEDIA_ROOT, 'h5pp', 'tmp')
     print("UP!"*40)
     print(filename)
-    raise KeyError
     if not os.path.exists(tmpdir):
         print("MAKEDIR")
         os.makedirs(tmpdir)
