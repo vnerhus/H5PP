@@ -576,7 +576,7 @@ def h5pEmbed(request):
     content = h5pGetContent(request)
 
     integration['contents'] = dict()
-    integration['contents']['cid-' + content['id']] = h5pGetContentSettings(request.user, content)
+    integration['contents']['cid-' + str(content['id'])] = h5pGetContentSettings(request.user, content)
 
     core = framework.h5pGetInstance('core')
     preloadedDependencies = core.loadContentDependencies(content['id'])
