@@ -1046,7 +1046,7 @@ class H5PCore:
     # Filter content run parameters, rebuild content dependency cache and export file.
     ##
     def filterParameters(self, content):
-        if not empty(content["filtered"]) and (not self.exportEnabled or (content["slug"] and self.fs.hasExport(content["slug"] + "-" + content["id"] + ".h5p"))):
+        if not empty(content["filtered"]) and (not self.exportEnabled or (content["slug"] and self.fs.hasExport(content["slug"] + "-" + str(content["id"]) + ".h5p"))):
             return content["filtered"]
 
         # Validate and filter against main library semantics.
