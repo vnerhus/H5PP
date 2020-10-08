@@ -1,3 +1,4 @@
+import html
 import os
 import zipfile
 import re
@@ -1701,7 +1702,7 @@ class H5PContentValidator:
 
             text = self.filterXss(text, tags, stylePatterns)
         else:
-            text = cgi.escape(text, True)
+            text = html.escape(text, True)
 
         if 'maxLength' in semantics:
             text = text[0:semantics['maxLength']]
