@@ -22,8 +22,8 @@ def handleUploadedFile(files, filename):
 
     with open(os.path.join(tmpdir, filename), 'wb+') as destination:
         print("WRITE O")
+        print("FILES:", files, type(files))
         for chunk in files.chunks():
-            print("WRITE I", chunk.decode('latin1'))
             destination.write(chunk)
 
     return {'folderPath': tmpdir, 'path': os.path.join(tmpdir, filename)}
