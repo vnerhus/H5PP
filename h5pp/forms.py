@@ -16,10 +16,13 @@ def handleUploadedFile(files, filename):
     tmpdir = os.path.join(settings.MEDIA_ROOT, 'h5pp', 'tmp')
     print("UP!"*40)
     if not os.path.exists(tmpdir):
+        print("MAKEDIR")
         os.makedirs(tmpdir)
 
     with open(os.path.join(tmpdir, filename), 'wb+') as destination:
+        print("WRITE O")
         for chunk in files.chunks():
+            print("WRITE I")
             destination.write(chunk)
 
     return {'folderPath': tmpdir, 'path': os.path.join(tmpdir, filename)}
