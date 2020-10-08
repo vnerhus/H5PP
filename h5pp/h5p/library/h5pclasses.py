@@ -790,7 +790,7 @@ class H5PExport:
 
         # Update content.json with content from database
         with open(tmpPath + "/content/content.json", "w") as f:
-            f.write(content["params"].decode("utf-8"))
+            f.write(content["params"])
 
         # Make embedType into an array
         embedTypes = content["embedType"].split(", ")
