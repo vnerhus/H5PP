@@ -1258,7 +1258,7 @@ class H5PCore:
             # Try to load from DB.
             semantics = self.h5pF.loadLibrarySemantics(name, majorVersion, minorVersion)
 
-        semantics['semantics'] = semantics['semantics'].decode('utf-8')
+        semantics['semantics'] = semantics['semantics']
 
         print("SEMANTICS:", semantics['semantics'], type(semantics['semantics']))
         if semantics is not None:
