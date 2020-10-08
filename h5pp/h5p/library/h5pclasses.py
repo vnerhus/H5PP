@@ -1257,8 +1257,8 @@ class H5PCore:
 
         print("SEMANTICS:", semantics['semantics'], type(semantics['semantics']))
         print("SEMANTIX:", semantics, type(semantics))
-        if semantics is not None:
-            semantics = json.loads(semantics)
+        #if semantics is not None:
+        #    semantics = json.loads(semantics)
 
         return semantics
 
