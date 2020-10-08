@@ -1249,9 +1249,11 @@ class H5PCore:
         semantics = None
         if self.development_mode and H5PDevelopment.MODE_LIBRARY:
             # Try to load from dev lib
+            print("Semantics dev")
             semantics = self.h5pD.getSemantics(name, majorVersion, minorVersion)
 
         if semantics is None:
+            print("Semantics db")
             # Try to load from DB.
             semantics = self.h5pF.loadLibrarySemantics(name, majorVersion, minorVersion)
 
