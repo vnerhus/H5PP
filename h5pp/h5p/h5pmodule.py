@@ -396,7 +396,7 @@ def h5pGetContent(request):
         'library': request.GET.get('main_library'),
         'embedType': 'div',
         'filtered': request.GET.get('filtered'),
-        'url': settings.BASE_URL + settings.MEDIA_URL + 'h5pp/content/' + h5pGetContentId(request),
+        'url': settings.BASE_URL + settings.MEDIA_URL + 'h5pp/content/' + str(h5pGetContentId(request)),
         'displayOptions': '',
         'slug': request.GET.get('h5p_slug')
     }
