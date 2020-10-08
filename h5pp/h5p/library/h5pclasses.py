@@ -1257,7 +1257,6 @@ class H5PCore:
 
         print("SEMANTICS:", semantics['semantics'], type(semantics['semantics']))
         print("SEMANTIX:", semantics, type(semantics))
-        semantics['semantics'] = eval(semantics['semantics']).decode('utf-8')
         if semantics is not None:
             semantics = json.loads(semantics)
 
