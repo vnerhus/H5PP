@@ -1249,16 +1249,15 @@ class H5PCore:
         semantics = None
         if self.development_mode and H5PDevelopment.MODE_LIBRARY:
             # Try to load from dev lib
-            semantics = self.h5pD.getSemantics(
-                name, majorVersion, minorVersion)
+            semantics = self.h5pD.getSemantics(name, majorVersion, minorVersion)
 
-        if semantics == None:
+        if semantics is None:
             # Try to load from DB.
             semantics = self.h5pF.loadLibrarySemantics(
                 name, majorVersion, minorVersion)
 
         print(semantics['semantics'])
-        if semantics != None:
+        if semantics is not None:
             semantics = json.loads(eval(semantics['semantics']).decode('utf-8'))
 
         return semantics
