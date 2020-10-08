@@ -14,7 +14,7 @@ import os
 
 def handleUploadedFile(files, filename):
     tmpdir = os.path.join(settings.MEDIA_ROOT, 'h5pp', 'tmp')
-
+    print("UP!"*40)
     if not os.path.exists(tmpdir):
         os.makedirs(tmpdir)
 
