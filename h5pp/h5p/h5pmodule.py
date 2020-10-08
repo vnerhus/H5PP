@@ -425,7 +425,7 @@ def h5pGetContentSettings(user, content):
         'jsonContent': filtered,
         'fullScreen': content['library']['fullscreen'],
         'exportUrl': h5pGetExportPath(content),
-        'embedCode': str('<iframe src="' + settings.BASE_URL + settings.H5P_URL + 'embed/' + content['id'] + '" width=":w" height=":h" frameborder="0" allowFullscreen="allowfullscreen"></iframe>'),
+        'embedCode': str('<iframe src="' + settings.BASE_URL + settings.H5P_URL + 'embed/' + str(content['id']) + '" width=":w" height=":h" frameborder="0" allowFullscreen="allowfullscreen"></iframe>'),
         'mainId': content['id'],
         'url': str(content['url']),
         'title': str(content['title'].encode('utf-8')),
