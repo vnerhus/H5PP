@@ -485,7 +485,7 @@ def determineEmbedType(contentEmbedType, libraryEmbedTypes):
 
 def h5pDependenciesToLibraryList(dependencies):
     libraryList = dict()
-    for key, dependency in dependencies.iteritems():
+    for key, dependency in dependencies.items():
         libraryList[dependency['machine_name']] = {
             'majorVersion': dependency['major_version'],
             'minorVersion': dependency['minor_version']

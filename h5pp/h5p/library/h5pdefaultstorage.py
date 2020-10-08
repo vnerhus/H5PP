@@ -150,7 +150,7 @@ class H5PDefaultStorage:
     ##
     def cacheAssets(self, files, key):
 
-        for dtype, assets in files.iteritems():
+        for dtype, assets in files.items():
             if empty(assets):
                 continue  # Skip no assets
 
