@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>{{ request.GET.title }}</title>
   {% for script in embed.scripts %}
-    <script type="text/javascript" src="{% static 'hello' script %}"></script>
+    <script type="text/javascript" src="{% 'hello' script %}"></script>
   {% endfor %}
   {% for style in embed.styles %}
     <link rel="stylesheet" href="{% static style %}">
