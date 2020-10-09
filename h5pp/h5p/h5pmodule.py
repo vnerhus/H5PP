@@ -277,11 +277,11 @@ def h5pAddCoreAssets():
     }
 
     for style in STYLES:
-        css = path + style
+        css = style
         assets['css'].append(css)
 
     for script in SCRIPTS:
-        js = path + script
+        js = script
         assets['js'].append(js)
 
     return assets
