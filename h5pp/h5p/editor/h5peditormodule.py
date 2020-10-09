@@ -66,10 +66,9 @@ def h5peditorContent(request, contentId=None):
     add.append('h5p/h5peditor/scripts/h5peditor-editor.js')
     add.append('h5p/h5peditor/application.js')
 
-    languageFile = settings.STATIC_URL + \
-        'h5p/h5peditor/language/' + settings.H5P_LANGUAGE + '.js'
+    languageFile = 'h5p/h5peditor/language/' + settings.H5P_LANGUAGE + '.js'
     if not os.path.exists(settings.BASE_DIR + languageFile):
-        languageFile = settings.STATIC_URL + 'h5p/h5peditor/language/en.js'
+        languageFile = 'h5p/h5peditor/language/en.js'
 
     add.append(languageFile)
 
@@ -77,7 +76,7 @@ def h5peditorContent(request, contentId=None):
     editor['editor'] = {
         'filesPath': os.path.join(settings.MEDIA_URL, 'h5pp', 'editor'),
         'fileIcon': {
-            'path': settings.BASE_URL + settings.STATIC_URL + 'h5p/h5peditor/images/binary-file.png',
+            'path': settings.BASE_URL + 'h5p/h5peditor/images/binary-file.png',
             'width': 50,
             'height': 50
         },
