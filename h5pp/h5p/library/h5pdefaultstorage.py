@@ -222,6 +222,7 @@ class H5PDefaultStorage:
             print("Not ready - Raise E")
             raise Exception('Unable to copy')
 
+        print("Ifpass 1")
         for f in os.listdir(source):
             print("F:", f)
             if (f != '.') and (f != '..') and f != '.git' and f != '.gitignore':
