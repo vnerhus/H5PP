@@ -25,6 +25,7 @@ OVERRIDE_STYLES = '/static/h5p/styles/h5pp.css'
 
 SCRIPTS = [
     "js/jquery.js",
+    "js/request-queue.js"
     "js/h5p.js",
     "js/h5p-event-dispatcher.js",
     "js/h5p-x-api-event.js",
