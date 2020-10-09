@@ -165,7 +165,7 @@ def scoreView(request, contentId):
     return HttpResponseRedirect('/h5p/login/?next=/h5p/score/' + contentId + '/')
 
 def embedView(request):
-    if True: #request.GET.get('contentId'):
+    if request.GET.get('contentId'):
         h5pLoad(request)
         embed = h5pEmbed(request)
         score = None
@@ -173,7 +173,7 @@ def embedView(request):
             h5pSetStarted(request.user, h5pGetContentId(request))
             #score = getUserScore(request.GET.get('contentId', 21), request.user)[0]
             try:
-                score = getUserScore(21, request.user)[0]
+                score = getUserScore(request.GET.get('contentId'), request.user)[0]
             except:
                 score = 0
         return render(request, 'h5p/embed.html', {'embed': embed, 'score': score})
