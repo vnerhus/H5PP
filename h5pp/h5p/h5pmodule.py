@@ -33,7 +33,30 @@ SCRIPTS = [
     "js/h5p-content-type.js",
     "js/h5p-confirmation-dialog.js",
     "js/h5p-action-bar.js",
+    "js/lib/EmbeddedJS-1.0/js/ejs.js"
+    "js/lib/EmbeddedJS-1.0/js/ejs_production.js"
+    "js/lib/EmbeddedJS-1.0/js/viewhelpers.js"
+    "js/lib/Drop-1.0/js/drop.min.js"
+    "js/lib/H5P.Image-1.1/image.js"
+    "js/lib/H5P.Image-1.1/upgrades.js"
+    "js/lib/H5P.JoubelUI-1.3/js/joubel-help-dialog.js"
+    "js/lib/H5P.JoubelUI-1.3/js/joubel-message-dialog.js"
+    "js/lib/H5P.JoubelUI-1.3/js/joubel-progress-circle.js"
+    "js/lib/H5P.JoubelUI-1.3/js/joubel-progressbar.js"
+    "js/lib/H5P.JoubelUI-1.3/js/joubel-score-bar.js"
+    "js/lib/H5P.JoubelUI-1.3/js/joubel-simple-rounded-button.js"
+    "js/lib/H5P.JoubelUI-1.3/js/joubel-slider.js"
+    "js/lib/H5P.JoubelUI-1.3/js/joubel-speech-bubble.js"
+    "js/lib/H5P.JoubelUI-1.3/js/joubel-throbber.js"
+    "js/lib/H5P.JoubelUI-1.3/js/joubel-tip.js"
+    "js/lib/H5P.JoubelUI-1.3/js/joubel-ui.js"
+    "js/lib/H5P.Question-1.4/scripts/explainer.js"
+    "js/lib/H5P.Question-1.4/scripts/question.js"
+    "js/lib/H5P.Question-1.4/scripts/score-points.js"
+    "js/lib/H5P.MultiChoice-1.14/presave.js"
+    "js/lib/H5P.MultiChoice-1.14/upgrades.js"
     "js/lib/H5P.MultiChoice-1.14/js/multichoice.js"
+
 ]
 
 ##
