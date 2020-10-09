@@ -219,6 +219,7 @@ class H5PDefaultStorage:
     def copyFileTree(self, source, destination):
         print("COPY FILE TREE")
         if not self.dirReady(destination):
+            print("Not ready - Raise E")
             raise Exception('Unable to copy')
 
         for f in os.listdir(source):
