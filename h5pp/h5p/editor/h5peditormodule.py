@@ -81,7 +81,7 @@ def h5peditorContent(request, contentId=None):
             'height': 50
         },
         'ajaxPath': settings.BASE_URL + settings.H5P_URL + 'editorajax/' + (request['contentId'] if 'contentId' in request else '0') + '/',
-        'libraryPath': settings.BASE_URL + settings.STATIC_URL + 'h5p/h5peditor/',
+        'libraryPath': settings.BASE_URL + 'h5p/h5peditor/',
         'copyrightSemantics': contentValidator.getCopyrightSemantics(),
         'assets': assets,
         'contentRelUrl': '../media/h5pp/content/'
