@@ -52,7 +52,7 @@ def h5peditorContent(request, contentId=None):
     add = list()
 
     for style in STYLES:
-        css = settings.STATIC_URL + 'h5p/h5peditor/' + style
+        css = 'h5p/h5peditor/' + style
         assets['css'].append(css)
 
     #Override Css
@@ -60,12 +60,11 @@ def h5peditorContent(request, contentId=None):
 
     for script in SCRIPTS:
         if script != 'scripts/h5peditor-editor.js':
-            js = settings.STATIC_URL + 'h5p/h5peditor/' + script
+            js = 'h5p/h5peditor/' + script
             assets['js'].append(js)
 
-    add.append(settings.STATIC_URL +
-               'h5p/h5peditor/scripts/h5peditor-editor.js')
-    add.append(settings.STATIC_URL + 'h5p/h5peditor/application.js')
+    add.append('h5p/h5peditor/scripts/h5peditor-editor.js')
+    add.append('h5p/h5peditor/application.js')
 
     languageFile = settings.STATIC_URL + \
         'h5p/h5peditor/language/' + settings.H5P_LANGUAGE + '.js'
