@@ -32,7 +32,7 @@ SCRIPTS = [
     "js/h5p-x-api.js",
     "js/h5p-content-type.js",
     "js/h5p-confirmation-dialog.js",
-    "js/h5p-action-bar.js"
+    "js/h5p-action-bar.js",
     "js/lib/H5P.MultiChoice-1.14/js/multichoice.js"
 ]
 
