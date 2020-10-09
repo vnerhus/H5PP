@@ -35,7 +35,7 @@ SCRIPTS = [
     "js/h5p-action-bar.js",
     "js/lib/EmbeddedJS-1.0/js/ejs.js",
     "js/lib/EmbeddedJS-1.0/js/ejs_production.js",
-    "js/lib/EmbeddedJS-1.0/js/viewhelpers.js",
+    "js/lib/EmbeddedJS-1.0/js/ejs_viewhelpers.js",
     "js/lib/Drop-1.0/js/drop.min.js",
     "js/lib/H5P.Image-1.1/image.js",
     "js/lib/H5P.Image-1.1/upgrades.js",
