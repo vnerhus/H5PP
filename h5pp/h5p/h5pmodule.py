@@ -270,18 +270,18 @@ def h5pSetFinished(request):
 
 
 def h5pAddCoreAssets():
-    path = settings.STATIC_URL + 'h5p/'
+    path = 'h5p/'
     assets = {
         'css': list(),
         'js': list()
     }
 
     for style in STYLES:
-        css = style
+        css = path + style
         assets['css'].append(css)
 
     for script in SCRIPTS:
-        js = script
+        js = path + script
         assets['js'].append(js)
 
     return assets
