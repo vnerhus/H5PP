@@ -223,11 +223,15 @@ class H5PDefaultStorage:
             raise Exception('Unable to copy')
 
         for f in os.listdir(source):
+            print("F:", f)
             if (f != '.') and (f != '..') and f != '.git' and f != '.gitignore':
+                print("Passed")
                 if os.path.isdir(os.path.join(source, f)):
+                    print("if")
                     self.copyFileTree(os.path.join(source, f),
                                       os.path.join(destination, f))
                 else:
+                    print("else")
                     shutil.copy(os.path.join(source, f),
                                 os.path.join(destination, f))
 
