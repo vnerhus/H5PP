@@ -125,8 +125,8 @@ def scoreView(request, contentId):
 
             return HttpResponseRedirect('/h5p/score/%s' % content.content_id, {'status': "Scores has been reset !"})
 
-        if 'user' in request.GET and (request.user.username == content.author or request.user.is_superuser):
-            user = User.objects.get(username=request.GET['user'])
+        if request.GET.get('user') and (request.user.username == content.author or request.user.is_superuser):
+            user = User.objects.get(username=request.GET.get('user'))
             userData = h5p_content_user_data.objects.filter(user_id=user.id, content_main_id=content.content_id)
             if userData:
                 userData.delete()
@@ -136,19 +136,19 @@ def scoreView(request, contentId):
 
             return HttpResponseRedirect('/h5p/score/%s' % content.content_id, {'status': "%s's score has been reset !" % user.username})
 
-        if 'download' in request.GET and request.user.is_superuser:
-            if request.GET['download'] == 'all':
+        if request.GET.get('download') and request.user.is_superuser:
+            if request.GET.get('download') == 'all':
                 scores = exportScore()
                 scores = ContentFile(scores)
                 response = HttpResponse(scores, 'text/plain')
                 response['Content-Length'] = scores.size
                 response['Content-Disposition'] = 'attachment; filename="h5pp_users_score.txt"'
             else:
-                scores = exportScore(request.GET['download'])
+                scores = exportScore(request.GET.get('download'))
                 scores = ContentFile(scores)
                 response = HttpResponse(scores, 'text/plain')
                 response['Content-Length'] = scores.size
-                response['Content-Disposition'] = 'attachment; filename="content_%s_users_score.txt"' % request.GET['download']
+                response['Content-Disposition'] = 'attachment; filename="content_%s_users_score.txt"' % request.GET.get('download')
 
             return response
 
@@ -157,12 +157,12 @@ def scoreView(request, contentId):
             listScore['owner'] = True
 
         listScore['data'] = getUserScore(content.content_id)
-        if listScore['data'] > 0:
+        if len(listScore['data']) > 0:
             return render(request, 'h5p/score.html', {'listScore': listScore, 'content': content})
 
         return render(request, 'h5p/score.html', {'status': 'No score available yet.', 'content': content})
 
-    return HttpResponseRedirect('/h5p/login/?next=/h5p/score/' + contentId + '/')
+    return HttpResponseRedirect('/h5p/login/?next=/h5p/score/' + str(contentId) + '/')
 
 def embedView(request):
     if request.GET.get('contentId'):
