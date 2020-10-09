@@ -246,8 +246,7 @@ def h5pSetFinished(request):
 
 
 def h5pAddCoreAssets():
-    #path = settings.STATIC_URL + 'h5p/'
-    path = 'h5p/'
+    path = settings.STATIC_URL + 'h5p/'
     assets = {
         'css': list(),
         'js': list()
