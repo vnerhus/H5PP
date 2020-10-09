@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <title>{{ request.GET.title }}</title>
   {% for script in embed.scripts %}
-    <script type="text/javascript" src="{% script %}"></script>
+    <script type="text/javascript" src="{% static 'hello' script %}"></script>
   {% endfor %}
   {% for style in embed.styles %}
-    <link rel="stylesheet" href="{% style %}">
+    <link rel="stylesheet" href="{% static style %}">
   {% endfor %}
   <link rel="stylesheet" href="{% static 'h5p/styles/bootstrap/css/bootstrap.min.css' %}">
   <style>
