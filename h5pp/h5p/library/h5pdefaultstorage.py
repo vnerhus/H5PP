@@ -217,6 +217,7 @@ class H5PDefaultStorage:
     # Recursive function for copying directories.
     ##
     def copyFileTree(self, source, destination):
+        print("COPY FILE TREE")
         if not self.dirReady(destination):
             raise Exception('Unable to copy')
 
